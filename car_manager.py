@@ -11,7 +11,6 @@ class CarManager(Turtle):
         super().__init__()
         self.all_cars = []
 
-
     def create_cars(self):
         new_car = Turtle("square")
         new_car.penup()
