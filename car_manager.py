@@ -9,6 +9,13 @@ class CarManager(Turtle):
 
     def __init__(self):
         super().__init__()
+        self.penup()
+        self.hideturtle()
+        self.goto(x=320, y=random.randint(-250, 250))
         self.color(random.choice(COLORS))
         self.shape("square")
-        self.shapesize(5, 5, 12)
+        self.shapesize(1, 3, 2)
+        self.showturtle()
+
+    def hit_the_gas(self):
+        self.setx(x=self.xcor() - 10)
