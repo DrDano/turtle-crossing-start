@@ -9,13 +9,19 @@ class CarManager(Turtle):
 
     def __init__(self):
         super().__init__()
-        self.penup()
-        self.hideturtle()
-        self.goto(x=320, y=random.randint(-250, 250))
-        self.color(random.choice(COLORS))
-        self.shape("square")
-        self.shapesize(1, 3, 2)
-        self.showturtle()
+        self.all_cars = []
+
+
+    def create_cars(self):
+        new_car = Turtle("square")
+        new_car.penup()
+        new_car.hideturtle()
+        new_car.goto(x=320, y=random.randint(-250, 250))
+        new_car.color(random.choice(COLORS))
+        new_car.shapesize(stretch_wid=1, stretch_len=2)
+        new_car.showturtle()
+        self.all_cars.append(new_car)
 
     def hit_the_gas(self):
-        self.setx(x=self.xcor() - 10)
+        for car in self.all_cars:
+            car.backward(STARTING_MOVE_DISTANCE)

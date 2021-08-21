@@ -10,6 +10,7 @@ screen.setup(width=600, height=600)
 screen.tracer(0)
 screen.title(titlestring="Turtle Crossing")
 player = Player()
+car = CarManager()
 
 # TODO create a player that starts at the bottom of the screen and listen for the Up keypress to move the turtle north.
 # TODO Create cars that are 20px high by 40px wide that are randomly generated along the y-axis and move to the left
@@ -28,8 +29,7 @@ while game_is_on:
     screen.onkeypress(fun=player.move, key="Up")
     game_loop_counter += 1
     if game_loop_counter % 6 == 0:
-        car = CarManager()
+        car.create_cars()
         car.hit_the_gas()
-
 
 screen.exitonclick()
