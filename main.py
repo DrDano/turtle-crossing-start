@@ -32,10 +32,8 @@ while game_is_on:
     if game_loop_counter % 6 == 0:
         car.create_cars()
     for unit in car.all_cars:
-        if player.xcor() - unit.xcor() > -20 and player.ycor() / unit.ycor() > 0.75:
+        if player.distance(x=unit.xcor(), y=unit.ycor()) < 15:
             game_is_on = False
     car.hit_the_gas()
-
-# Currently the car's position is always 0,0
 
 screen.exitonclick()
