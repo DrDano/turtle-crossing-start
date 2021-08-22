@@ -19,10 +19,10 @@ car.hideturtle()
 #  (think of it as a safe zone for our little turtle). Hint: generate a new car only every 6th time the game loop runs.
 
 
-
 # All actions of the player that occur before game is over
 game_is_on = True
 game_loop_counter = 0
+game_score = 0
 while game_is_on:
     time.sleep(0.1)
     screen.update()
@@ -35,5 +35,10 @@ while game_is_on:
         if player.distance(x=unit.xcor(), y=unit.ycor()) < 15:
             game_is_on = False
     car.hit_the_gas()
+    if player.ycor() > 260:
+        game_score -= game_loop_counter + 100
+        player.sety(y=-250)
+        car.hit_the_gas()
+
 
 screen.exitonclick()
