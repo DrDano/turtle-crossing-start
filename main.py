@@ -12,6 +12,7 @@ screen.title(titlestring="Turtle Crossing")
 player = Player()
 car = CarManager()
 car.hideturtle()
+scoreboard = Scoreboard
 
 # TODO create a player that starts at the bottom of the screen and listen for the Up keypress to move the turtle north.
 # TODO Create cars that are 20px high by 40px wide that are randomly generated along the y-axis and move to the left
@@ -22,7 +23,8 @@ car.hideturtle()
 # All actions of the player that occur before game is over
 game_is_on = True
 game_loop_counter = 0
-game_score = 0
+game_score = 1
+game_speed = 1
 while game_is_on:
     time.sleep(0.1)
     screen.update()
@@ -34,11 +36,11 @@ while game_is_on:
     for unit in car.all_cars:
         if player.distance(x=unit.xcor(), y=unit.ycor()) < 15:
             game_is_on = False
-    car.hit_the_gas()
+    car.hit_the_gas(game_speed)
     if player.ycor() > 260:
-        game_score -= game_loop_counter + 100
+        game_score -= game_loop_counter + 180
         player.sety(y=-250)
-        car.hit_the_gas()
-
+        game_speed += 1
+    scoreboard()
 
 screen.exitonclick()

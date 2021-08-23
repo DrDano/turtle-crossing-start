@@ -23,7 +23,5 @@ class CarManager(Turtle):
 
     def hit_the_gas(self, speed_up):
         for car in self.all_cars:
-            if speed_up:
-                car.backward(STARTING_MOVE_DISTANCE + MOVE_INCREMENT)
-            car.backward(STARTING_MOVE_DISTANCE)
+            car.backward(STARTING_MOVE_DISTANCE * speed_up)
 
