@@ -4,10 +4,11 @@ FONT = ("Courier", 24, "normal")
 
 class Scoreboard(Turtle):
 
-    def __init__(self):
+    def __init__(self, score):
         super().__init__()
-        self.score = 0
+        self.score = score
         self.hideturtle()
         self.penup()
-        self.sety(y=290)
+        self.goto(-280, 270)
         self.write(f"Score: {self.score}", align="left", font=FONT)
+        self.clear()

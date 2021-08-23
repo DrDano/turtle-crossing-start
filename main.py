@@ -38,9 +38,10 @@ while game_is_on:
             game_is_on = False
     car.hit_the_gas(game_speed)
     if player.ycor() > 260:
-        game_score -= game_loop_counter + 180
+        game_score -= game_loop_counter
         player.sety(y=-250)
         game_speed += 1
-    scoreboard()
+        game_score += 150
+    scoreboard(score=game_score)
 
 screen.exitonclick()
